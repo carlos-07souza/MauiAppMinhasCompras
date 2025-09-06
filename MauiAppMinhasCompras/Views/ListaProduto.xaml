@@ -11,18 +11,16 @@
     </ContentPage.ToolbarItems>
 
     <VerticalStackLayout>
-        <Label 
-            Text=""
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <SearchBar x:Name="txt_search" 
-                   Placeholder="Busca de Produtos" 
+        <Label Text=""
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <SearchBar x:Name="txt_search"
+                   Placeholder="Busca de Produtos"
                    TextChanged="txt_search_TextChanged" />
 
-        <ListView x:Name="lst_produtos" >
+        <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
             <ListView.Header>
-
-                <Grid ColumnDefinitions="*, *, *, *, *, *">
+                <Grid ColumnDefinitions="*, *, *, *, *">
                     <Label Grid.Column="0" Text="Id" />
                     <Label Grid.Column="1" Text="Descricao" />
                     <Label Grid.Column="2" Text="Preco" />
@@ -34,10 +32,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Remove" 
+                            <MenuItem Text="Remove"
                                       Clicked="MenuItem_Clicked"/>
                         </ViewCell.ContextActions>
-                        <Grid ColumnDefinitions="*, *, *, *, *, *">
+                        <Grid ColumnDefinitions="*, *, *, *, *">
                             <Label Grid.Column="0" Text="{Binding Id}" />
                             <Label Grid.Column="1" Text="{Binding Descricao}" />
                             <Label Grid.Column="2" Text="{Binding Preco}" />
@@ -47,7 +45,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
     </VerticalStackLayout>
 </ContentPage>
