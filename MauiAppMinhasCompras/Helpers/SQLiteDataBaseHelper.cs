@@ -41,5 +41,15 @@ namespace MauiAppMinhasCompras.Helpers
 
             return _conn.QueryAsync<Produto>(sql);
         }
+
+        public async Task<List<Produto>> GetByDate(DateTime startDate, DateTime endDate)
+        {
+            // Certifique-se de que _conn é a sua conexão com o SQLite
+            // e que a tabela Produto já foi criada.
+            return await _conn.Table<Produto>()
+                              .Where(p => p.DataCadastro >= startDate && p.DataCadastro <= endDate)
+                              .ToListAsync();
+        }
+
     }
 }

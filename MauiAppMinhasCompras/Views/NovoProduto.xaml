@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.NovoProduto"
-             Title="Novo Produto" 
-             BackgroundColor="#ADD8E6">
+             Title="Novo Produto">
+
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked" />
@@ -15,12 +15,17 @@
                FontAttributes="Bold"/>
         <Entry x:Name="txt_descricão" HorizontalTextAlignment="Center"/>
 
-        <Label Text="Quantidade:"  HorizontalTextAlignment="Center"
+        <Label Text="Qnt:"  HorizontalTextAlignment="Center"
                FontAttributes="Bold"/>
         <Entry x:Name="txt_quantidade" HorizontalTextAlignment="Center" Keyboard="Numeric" />
 
         <Label Text="Preço Unitário:"  HorizontalTextAlignment="Center"
                FontAttributes="Bold"/>
         <Entry x:Name="txt_preco" HorizontalTextAlignment="Center" Keyboard="Numeric" />
+
+        <Label Text="Data da Compra:" />
+        <DatePicker x:Name="dp_data_compra" Format="dd/MM/yyyy" />
+        
+        
     </VerticalStackLayout>
 </ContentPage>

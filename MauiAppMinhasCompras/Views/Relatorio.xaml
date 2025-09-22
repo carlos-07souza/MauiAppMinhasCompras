@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Views.Relatorio"
+             Title="Relatório de Compras">
+    <VerticalStackLayout Spacing="10" Padding="20">
+
+        <Label Text="Filtrar por Período" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto">
+            <Label Grid.Row="0" Grid.Column="0" Text="Data Inicial:" VerticalOptions="Center" />
+            <DatePicker x:Name="dp_data_inicial" Grid.Row="0" Grid.Column="1" Format="dd/MM/yyyy" />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Data Final:" VerticalOptions="Center" />
+            <DatePicker x:Name="dp_data_final" Grid.Row="1" Grid.Column="1" Format="dd/MM/yyyy" />
+        </Grid>
+
+        <Button Text="Filtrar" Clicked="Button_Filtrar_Clicked" />
+
+        <ListView x:Name="lst_relatorio" RowHeight="50" IsVisible="False">
+            <ListView.Header>
+                <Grid ColumnDefinitions="*, *, *, *">
+                    <Label Grid.Column="0" Text="Data" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="Descrição" FontAttributes="Bold" />
+                    <Label Grid.Column="2" Text="Preço" FontAttributes="Bold" />
+                    <Label Grid.Column="3" Text="Total" FontAttributes="Bold" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*, *, *, *">
+                            <Label Grid.Column="0" Text="{Binding DataCadastro, StringFormat='{}{0:dd/MM/yyyy}'}" VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="{Binding Descricao}" VerticalOptions="Center" />
+                            <Label Grid.Column="2" Text="{Binding Preco, StringFormat='{}{0:C}'}" VerticalOptions="Center" />
+                            <Label Grid.Column="3" Text="{Binding Total, StringFormat='{}{0:C}'}" VerticalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
